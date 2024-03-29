@@ -317,6 +317,9 @@ class PacketManager:
         with self._testcase_queue_lock:
             self._testcase_queue.append((position, result))
 
+        # We slow down the request because the server can't handle the load
+        time.sleep(1)
+
     def compile_error_packet(self, message: str):
         log.debug('Compile error: %d', self.judge.current_submission.id)
         self.fallback = 4
