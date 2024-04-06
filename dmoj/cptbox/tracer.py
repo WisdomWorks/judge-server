@@ -1,5 +1,6 @@
 import errno
 import logging
+import re
 import os
 import select
 import signal
@@ -31,7 +32,10 @@ _SYSCALL_INDICIES[PTBOX_ABI_ARM64] = 5
 
 FREEBSD = sys.platform.startswith('freebsd')
 log.warning("CHECK", os.uname().release.partition('-')[0].split('.'))
-BAD_SECCOMP = sys.platform == 'linux' and tuple(map(int, os.uname().release.partition('-')[0].split('.'))) < (4, 8)
+BAD_SECCOMP = sys.platform == 'linux' and tuple(map(int, re.sub(r'[^0-9.]', '', os.uname().release).split('.'))) < (
+    4,
+    8,
+)
 
 _address_bits = {
     PTBOX_ABI_X86: 32,
