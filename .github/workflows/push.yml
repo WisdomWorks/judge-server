@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -39,4 +39,4 @@ jobs:
           file: ./.docker/tier${{ matrix.tier }}/Dockerfile
           push: true
           tags: wisdomwork/judge-tier-${{ matrix.tier }}
-          platforms: linux/amd64,linux/arm64,linux/arm/v7
+          platforms: linux/amd64,linux/arm64
