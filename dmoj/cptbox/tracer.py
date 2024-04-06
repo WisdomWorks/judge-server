@@ -30,7 +30,7 @@ _SYSCALL_INDICIES[PTBOX_ABI_FREEBSD_X64] = 4
 _SYSCALL_INDICIES[PTBOX_ABI_ARM64] = 5
 
 FREEBSD = sys.platform.startswith('freebsd')
-print("CHECK", os.uname().release.partition('-')[0].split('.'))
+log.warning("CHECK", os.uname().release.partition('-')[0].split('.'))
 BAD_SECCOMP = sys.platform == 'linux' and tuple(map(int, os.uname().release.partition('-')[0].split('.'))) < (4, 8)
 
 _address_bits = {
