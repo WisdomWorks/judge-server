@@ -2,7 +2,7 @@ FROM dmoj/runtimes-tier1
 
 ARG TAG=master
 RUN mkdir /judge /problems && cd /judge && \
-	curl -L https://github.com/WisdomWorks/judge-server/"${TAG}".tar.gz | tar -xz --strip-components=1 && \
+	curl -L https://github.com/WisdomWorks/judge-server/master.tar.gz | tar -xz --strip-components=1 && \
 	python3 -m venv --prompt=DMOJ /env && \
 	/env/bin/pip3 install cython && \
 	/env/bin/pip3 install -e . && \
