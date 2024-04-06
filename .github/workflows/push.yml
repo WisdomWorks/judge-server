@@ -1,6 +1,8 @@
 name: Build Multi-Arch Docker Image
 
 on:
+  # Allow manual trigger, so that we can trigger the build from the GitHub Actions UI
+  workflow_dispatch:
   push:
     branches:
       - main
