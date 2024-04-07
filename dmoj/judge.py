@@ -641,18 +641,19 @@ def main():  # pragma: no cover
 
         signal.signal(signal.SIGUSR2, update_problem_signal)
 
-    if judgeenv.api_listen:
-        judge_instance = judge
+    # if judgeenv.api_listen:
+    #     print(judgeenv.api_listen)
+    #     judge_instance = judge
 
-        class Handler(JudgeControlRequestHandler):
-            judge = judge_instance
+    #     class Handler(JudgeControlRequestHandler):
+    #         judge = judge_instance
 
-        api_server = HTTPServer(judgeenv.api_listen, Handler)
-        thread = threading.Thread(target=api_server.serve_forever)
-        thread.daemon = True
-        thread.start()
-    else:
-        api_server = None
+    #     api_server = HTTPServer(judgeenv.api_listen, Handler)
+    #     thread = threading.Thread(target=api_server.serve_forever)
+    #     thread.daemon = True
+    #     thread.start()
+    # else:
+    api_server = None
 
     print()
     with monitor:
