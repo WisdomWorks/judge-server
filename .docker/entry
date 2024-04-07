@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export DMOJ_IN_DOCKER=1
+export DMOJ_IN_DOCKER=0
 export PYTHONUNBUFFERED=1
 export LANG=C.UTF-8
 export PYTHONIOENCODING=utf8
