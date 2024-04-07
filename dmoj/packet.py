@@ -236,6 +236,7 @@ class PacketManager:
                 # *cough* fpc *cough* that could cause this routine to crash
                 # We cannot use utf8text because it may not be text.
                 packet[k] = v.decode('utf-8', 'replace')
+        log.info(f"Sending packet: {packet}")
 
         raw = zlib.compress(utf8bytes(json.dumps(packet)))
         with self._lock:
@@ -247,6 +248,7 @@ class PacketManager:
                 os._exit(1)
 
     def _receive_packet(self, packet: dict):
+        log.info(f"Receive packet: {packet}")
         name = packet['name']
         if name == 'ping':
             self.ping_packet(packet['when'])
